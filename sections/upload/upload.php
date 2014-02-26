@@ -137,6 +137,7 @@ $HideDNU = check_perms('torrents_hide_dnu') && !$NewDNU;
 <?
 $TorrentForm->head();
 switch ($UploadForm) {
+	case 'Podcasts':
 	case 'Music':
 		$TorrentForm->music_form($GenreTags);
 		break;

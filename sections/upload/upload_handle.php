@@ -89,6 +89,7 @@ $RequestID = $_POST['requestid'];
 
 $Validate->SetFields('type', '1', 'inarray', 'Please select a valid type.', array('inarray' => array_keys($Categories)));
 switch ($Type) {
+	case 'Podcasts':
 	case 'Music':
 		if (!$_POST['groupid']) {
 			$Validate->SetFields('title',
