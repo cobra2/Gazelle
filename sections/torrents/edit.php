@@ -76,6 +76,10 @@ if (!($Properties['Remastered'] && !$Properties['RemasterYear']) || check_perms(
 
 	$TorrentForm->head();
 	switch ($UploadForm) {
+		case 'Podcasts':
+			$TorrentForm->podcast_form('');
+			break;
+
 		case 'Music':
 			$TorrentForm->music_form('');
 			break;

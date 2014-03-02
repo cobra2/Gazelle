@@ -21,6 +21,9 @@ $UploadForm = $Categories[$_GET['categoryid']];
 
 switch ($UploadForm) {
 	case 'Podcasts':
+		$TorrentForm->podcast_form($GenreTags);
+		break;
+
 	case 'Music':
 		$TorrentForm->music_form($GenreTags);
 		break;
