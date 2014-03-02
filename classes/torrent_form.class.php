@@ -738,7 +738,9 @@ function show() {
 					<p class="min_padding">Correct Format for title is "$ShowName $ShowNumber $Title" i.e. "HPR 1337 Overdrive" or "TLLTS 435 12.28.2011". If the show has no title, please do not create your own title for the show.</p>
 				</td>
 			</tr>
-//Removed MusicBrainz script
+<?
+// Removed MusicBrainz script
+?>	
 			<tr id="year_tr">
 				<td class="label">
 					<span id="year_label_not_remaster"<? if ($IsRemaster) { echo ' class="hidden"';} ?>>Year:</span>
