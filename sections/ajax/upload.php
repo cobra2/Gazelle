@@ -20,6 +20,7 @@ if (!$GenreTags) {
 $UploadForm = $Categories[$_GET['categoryid']];
 
 switch ($UploadForm) {
+	case 'Podcasts':
 	case 'Music':
 		$TorrentForm->music_form($GenreTags);
 		break;
