@@ -251,7 +251,7 @@ if (!is_uploaded_file($TorrentName) || !filesize($TorrentName)) {
 	$Err = "You seem to have put something other than a torrent file into the upload field. (".$File['name'].").";
 }
 
-if ($Type == 'Music') {
+if ($Type == 'Music', 'Podcasts') {
 	include(SERVER_ROOT.'/sections/upload/get_extra_torrents.php');
 }
 
@@ -279,7 +279,7 @@ if (!$Err && $Properties['Format'] == 'FLAC') {
 //Multiple artists!
 
 $LogName = '';
-if (empty($Properties['GroupID']) && empty($ArtistForm) && $Type == 'Music') {
+if (empty($Properties['GroupID']) && empty($ArtistForm) && $Type == 'Music', 'Podcasts') {
 	$MainArtistCount = 0;
 	$ArtistNames = array();
 	$ArtistForm = array(
@@ -306,7 +306,7 @@ if (empty($Properties['GroupID']) && empty($ArtistForm) && $Type == 'Music') {
 		$ArtistForm = array();
 	}
 	$LogName .= Artists::display_artists($ArtistForm, false, true, false);
-} elseif ($Type == 'Music' && empty($ArtistForm)) {
+} elseif ($Type == 'Music', 'Podcasts' && empty($ArtistForm)) {
 	$DB->query("
 		SELECT ta.ArtistID, aa.Name, ta.Importance
 		FROM torrents_artists AS ta
@@ -418,7 +418,7 @@ $FilePath = db_string($DirName);
 $FileString = db_string(implode("\n", $TmpFileList));
 $Debug->set_flag('upload: torrent decoded');
 
-if ($Type == 'Music') {
+if ($Type == 'Music', 'Podcasts') {
 	include(SERVER_ROOT.'/sections/upload/generate_extra_torrents.php');
 }
 
@@ -439,7 +439,7 @@ if (!preg_match('/^'.IMAGE_REGEX.'$/i', $Properties['Image'])) {
 	$T['Image'] = "''";
 }
 
-if ($Type == 'Music') {
+if ($Type == 'Music', 'Podcasts') {
 	// Does it belong in a group?
 	if ($Properties['GroupID']) {
 		$DB->query("
@@ -538,7 +538,7 @@ $LogName .= $Properties['Title'];
 $IsNewGroup = !$GroupID;
 
 //----- Start inserts
-if (!$GroupID && $Type == 'Music') {
+if (!$GroupID && $Type == 'Music', 'Podcasts') {
 	//array to store which artists we have added already, to prevent adding an artist twice
 	$ArtistsAdded = array();
 	foreach ($ArtistForm as $Importance => $Artists) {
@@ -577,7 +577,7 @@ if (!$GroupID) {
 		VALUES
 			(0, $TypeID, ".$T['Title'].", $T[Year], $T[RecordLabel], $T[CatalogueNumber], '".sqltime()."', '".db_string($Body)."', $T[Image], $T[ReleaseType], $T[VanityHouse])");
 	$GroupID = $DB->inserted_id();
-	if ($Type == 'Music') {
+	if ($Type == 'Music', 'Podcasts') {
 		foreach ($ArtistForm as $Importance => $Artists) {
 			foreach ($Artists as $Num => $Artist) {
 				$DB->query("
@@ -597,7 +597,7 @@ if (!$GroupID) {
 	$Cache->delete_value("torrent_group_$GroupID");
 	$Cache->delete_value("torrents_details_$GroupID");
 	$Cache->delete_value("detail_files_$GroupID");
-	if ($Type == 'Music') {
+	if ($Type == 'Music', 'Podcasts') {
 		$DB->query("
 			SELECT ReleaseType
 			FROM torrents_group
@@ -690,7 +690,7 @@ Torrents::write_group_log($GroupID, $TorrentID, $LoggedUser['ID'], 'uploaded ('.
 Torrents::update_hash($GroupID);
 $Debug->set_flag('upload: sphinx updated');
 
-if ($Type == 'Music') {
+if ($Type == 'Music', 'Podcasts') {
 	include(SERVER_ROOT.'/sections/upload/insert_extra_torrents.php');
 }
 
@@ -781,13 +781,13 @@ if (function_exists('fastcgi_finish_request')) {
 //--------------- IRC announce and feeds ---------------------------------------//
 $Announce = '';
 
-if ($Type == 'Music') {
+if ($Type == 'Music', 'Podcasts') {
 	$Announce .= Artists::display_artists($ArtistForm, false);
 }
 $Announce .= trim($Properties['Title']).' ';
-if ($Type == 'Music') {
+if ($Type == 'Music', 'Podcasts') {
 	$Announce .= '['.trim($Properties['Year']).']';
-	if (($Type == 'Music') && ($Properties['ReleaseType'] > 0)) {
+	if (($Type == 'Music', 'Podcasts') && ($Properties['ReleaseType'] > 0)) {
 		$Announce .= ' ['.$ReleaseTypes[$Properties['ReleaseType']].']';
 	}
 	$Announce .= ' - ';
@@ -1017,7 +1017,7 @@ while (list($UserID, $Passkey) = $DB->next_record()) {
 
 $Feed->populate('torrents_all', $Item);
 $Debug->set_flag('upload: notifications handled');
-if ($Type == 'Music') {
+if ($Type == 'Music', 'Podcasts') {
 	$Feed->populate('torrents_music', $Item);
 	if ($Properties['Media'] == 'Vinyl') {
 		$Feed->populate('torrents_vinyl', $Item);
