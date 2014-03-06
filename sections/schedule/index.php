@@ -985,9 +985,9 @@ if (!$NoDaily && $Day != $NextDay || $_GET['runday']) {
 		FROM torrents AS t
 			JOIN torrents_group AS tg ON tg.ID = t.GroupID
 		WHERE
-			(t.last_action < '".time_minus(3600 * 24 * 28)."' AND t.last_action != 0)
+			(t.last_action < '".time_minus(3600 * 24 * 56)."' AND t.last_action != 0)
 			OR
-			(t.Time < '".time_minus(3600 * 24 * 2)."' AND t.last_action = 0)");
+			(t.Time < '".time_minus(3600 * 24 * 28)."' AND t.last_action = 0)");
 	$Torrents = $DB->to_array();
 	echo 'Found '.count($Torrents)." inactive torrents to be deleted.\n";
 
