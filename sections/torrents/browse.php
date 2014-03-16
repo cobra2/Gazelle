@@ -924,7 +924,7 @@ if ($NumResults == 0) {
 		LIMIT 8");
 ?>
 <div class="box pad" align="center">
-	<h2>Your search did not match anything.</h2>
+	<h2>What you talkin bout Willis?</h2>
 	<p>Make sure all names are spelled correctly, or try making your search less specific.</p>
 	<p>You might like (beta): <? while (list($Tag) = $DB->next_record()) { ?><a href="torrents.php?taglist=<?=$Tag?>"><?=$Tag?></a><? } ?></p>
 </div>

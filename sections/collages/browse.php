@@ -289,7 +289,7 @@ View::show_header(($BookmarkView) ? 'Your bookmarked collages' : 'Browse collage
 <?		if ($BookmarkView) { ?>
 	<h2>You have not bookmarked any collages.</h2>
 <?		} else { ?>
-	<h2>Your search did not match anything.</h2>
+	<h2>Whatchu talkin bout Willis?</h2>
 	<p>Make sure all names are spelled correctly, or try making your search less specific.</p>
 <?		} ?>
 </div><!--box-->
