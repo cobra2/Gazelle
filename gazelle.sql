@@ -909,6 +909,7 @@ CREATE TABLE `sphinx_requests_delta` (
   `LastVote` int(12) unsigned DEFAULT NULL,
   `CategoryID` tinyint(4) DEFAULT NULL,
   `Title` varchar(255) DEFAULT NULL,
+  `TagList` varchar(728) NOT NULL DEFAULT '',
   `Year` int(4) DEFAULT NULL,
   `ArtistList` varchar(2048) DEFAULT NULL,
   `ReleaseType` tinyint(2) DEFAULT NULL,
@@ -1039,6 +1040,14 @@ CREATE TABLE `staff_pm_responses` (
   `Message` text,
   `Name` text,
   PRIMARY KEY (`ID`)
+) ENGINE=InnoDB CHARSET utf8;
+
+CREATE TABLE `styles_backup` (
+  `UserID` int(10) NOT NULL DEFAULT '0',
+  `StyleID` int(10) DEFAULT NULL,
+  `StyleURL` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`UserID`),
+  KEY `StyleURL` (`StyleURL`)
 ) ENGINE=InnoDB CHARSET utf8;
 
 CREATE TABLE `stylesheets` (

@@ -229,7 +229,7 @@ echo $Val->GenerateJS('userform');
 				</td>
 			</tr>
 			<tr id="tor_gdisp_search_tr">
-				<td class="label tooltip" title="In torrent search results, open torrent groups will be expanded by default, and closed torrent groups will be collapsed by default."><strong>Torrent group display (search)</strong></td>
+				<td class="label tooltip" title="In torrent search results and on artist pages, &quot;open&quot; will expand torrent groups by default, and &quot;closed&quot; will collapse torrent groups by default."><strong>Torrent group display</strong></td>
 				<td>
 					<div class="option_group">
 						<ul class="options_list nobullet">
@@ -246,7 +246,7 @@ echo $Val->GenerateJS('userform');
 				</td>
 			</tr>
 			<tr id="tor_gdisp_artist_tr">
-				<td class="label tooltip" title="On artist pages, open torrent groups will be expanded by default, and closed torrent groups will be collapsed by default."><strong>Torrent group display (artist pages)</strong></td>
+				<td class="label tooltip" title="On artist pages, &quot;open&quot; will expand release type sections by default, and &quot;closed&quot; will collapse release type sections by default."><strong>Release type display (artist pages)</strong></td>
 				<td>
 					<ul class="options_list nobullet">
 						<li>
@@ -258,13 +258,6 @@ echo $Val->GenerateJS('userform');
 							<label for="discog_view_closed">Closed</label>
 						</li>
 					</ul>
-				</td>
-			</tr>
-			<tr id="tor_snatched_tr">
-				<td class="label tooltip" title="Enabling the snatched torrents indicator will display &quot;Snatched!&quot; next to torrents you've snatched."><strong>Snatched torrents indicator</strong></td>
-				<td>
-					<input type="checkbox" name="showsnatched" id="showsnatched"<?=!empty($SiteOptions['ShowSnatched']) ? ' checked="checked"' : ''?> />
-					<label for="showsnatched">Enable snatched torrents indicator</label>
 				</td>
 			</tr>
 			<tr id="tor_reltype_tr">
@@ -283,6 +276,13 @@ echo $Val->GenerateJS('userform');
 						</script>
 					</div>
 					<input type="hidden" id="sorthide" name="sorthide" value="" />
+				</td>
+			</tr>
+			<tr id="tor_snatched_tr">
+				<td class="label tooltip" title="Enabling the snatched torrents indicator will display &quot;Snatched!&quot; next to torrents you've snatched."><strong>Snatched torrents indicator</strong></td>
+				<td>
+					<input type="checkbox" name="showsnatched" id="showsnatched"<?=!empty($SiteOptions['ShowSnatched']) ? ' checked="checked"' : ''?> />
+					<label for="showsnatched">Enable snatched torrents indicator</label>
 				</td>
 			</tr>
 <!--			<tr>
@@ -787,7 +787,7 @@ list($ArtistsAdded) = $DB->next_record();
 				<td class="label tooltip" title="This is the email address you want associated with your <?=SITE_NAME?> account. It will be used if you forget your password or if an alert needs to be sent to you."><strong>Email address</strong></td>
 				<td>
 					<div class="field_div">
-						<input type="text" size="50" name="email" id="email" value="<?=display_str($Email)?>" />
+						<input type="email" size="50" name="email" id="email" value="<?=display_str($Email)?>" />
 					</div>
 					<p class="min_padding">When changing your email address, you must enter your current password in the "Current password" field before saving your changes.</p>
 				</td>
