@@ -97,8 +97,16 @@ View::show_header('Uploading Rules', 'rules');
 					<strong>Seed complete copies of your uploads.</strong> Do not upload a torrent unless you intend to seed until there are at least 1.0 distributed copies. Seeding past this minimum is strongly encouraged.
 				</li>
 				<li id="r1.1.5"><a href="#h1.1"><strong>&uarr;_</strong></a> <a href="#r1.1.5">1.1.5.</a>
-					<strong>No advertisements.</strong> Do not advertise other sites or groups in torrent descriptions, torrent directories, torrent file names, or torrent contents. We have no advertising and neither should you. Exceptions: Additional information about an artist, album, or band is acceptable, and is not considered advertising. Also, .nfo files in scene releases are not considered advertising.
+					<strong>No advertising or personal credits.</strong> Providing artist, album, label, or retailer information is not considered advertising.
 				</li>
+				<ul>
+					<li id="r1.1.5.1"><a href="#h1.1.5"><strong>&uarr;_</strong></a> <a href="#r1.1.5.1">1.1.5.1</a>
+						<strong>Do not advertise sites, groups, or persons in torrent contents (e.g., folder names, file names, or file tags).</strong> Exceptions: untouched scene uploads are exempt from this rule. For analog uploads, ripper credits may be included in a lineage text file, in a folder name, or in an optional file tag field (e.g. "comment" or "ripped by"), but never in a required tag field).
+					</li>
+					<li id="r1.1.5.2"><a href="#h1.1.5"><strong>&uarr;_</strong></a> <a href="#r1.1.5.2">1.1.5.2</a>
+						<strong>Do not advertise sites, groups, or persons in torrent descriptions.</strong> Exception: torrent source information (e.g. ripper, scene group, or original uploader credit) is allowed in torrent descriptions.
+					</li>
+				</ul>
 				<li id="r1.1.6"><a href="#h1.1"><strong>&uarr;_</strong></a> <a href="#r1.1.6">1.1.6.</a>
 					<strong>Archived files in uploads are not allowed.</strong> Exceptions: The sections that allow archived files (e.g., zip, rar, iso, etc.) are the following:
 					<ul>
@@ -142,24 +150,21 @@ View::show_header('Uploading Rules', 'rules');
 		<div class="box pad" style="padding: 10px 10px 10px 20px;">
 			<ul>
 				<li id="r1.3.1"><a href="#h1.3"><strong>&uarr;_</strong></a> <a href="#r1.3.1">1.3.1.</a>
-					<strong>Do not add irrelevant credits to your torrent.</strong> Your name is credited to the upload; there's no need to add it anywhere else.
-				</li>
-				<li id="r1.3.2"><a href="#h1.3"><strong>&uarr;_</strong></a> <a href="#r1.3.2">1.3.2.</a>
 					<strong>You may give credit to the release group (optional).</strong> If you really want to give credit to the release group, mention the full release name, including group name, in the Release description section only. Do not add this information to the Album description section.
 				</li>
-				<li id="r1.3.3"><a href="#h1.3"><strong>&uarr;_</strong></a> <a href="#r1.3.3">1.3.3.</a>
+				<li id="r1.3.2"><a href="#h1.3"><strong>&uarr;_</strong></a> <a href="#r1.3.2">1.3.2.</a>
 					<strong>No NFO art pasted in the album description.</strong> Unedited NFOs are allowed within the specific torrent Release description - not in the Album page description. If you must include some information from the NFO in the Album description or Release description, include only the tracklist, album notes, and other essential information. Specific encoding settings belong in the Release description.
 				</li>
-				<li id="r1.3.4"><a href="#h1.3"><strong>&uarr;_</strong></a> <a href="#r1.3.4">1.3.4.</a>
+				<li id="r1.3.3"><a href="#h1.3"><strong>&uarr;_</strong></a> <a href="#r1.3.3">1.3.3.</a>
 					<strong>Use the actual album title on the <a href="upload.php">upload page</a>; do not use the scene-given title.</strong> Naming your album_titles_like_this or your.albums.like.this is not allowed. Use the actual release title and artist. Do not use the title from the torrent folder or NFO for the scene release.
 				</li>
-				<li id="r1.3.5"><a href="#h1.3"><strong>&uarr;_</strong></a> <a href="#r1.3.5">1.3.5.</a>
+				<li id="r1.3.4"><a href="#h1.3"><strong>&uarr;_</strong></a> <a href="#r1.3.4">1.3.4.</a>
 					<strong>Scene releases must be complete (as released) to use the Scene label.</strong> If you've changed the tags, unpacked the archive, removed any files, split the tracks, or altered the track naming, then it is no longer a scene release. It should not be labeled as such. If any of these changes has taken place, file names should not include any reference to the release group (see <a href="#r1.1.5">1.1.5</a>, <a href="#r2.3.2">2.3.2</a>, and <a href="#r2.3.11">2.3.11</a>).
 				</li>
-				<li id="r1.3.6"><a href="#h1.3"><strong>&uarr;_</strong></a> <a href="#r1.3.6">1.3.6.</a>
+				<li id="r1.3.5"><a href="#h1.3"><strong>&uarr;_</strong></a> <a href="#r1.3.5">1.3.5.</a>
 					<strong>No protected archives.</strong> Archived releases must not be password protected.
 				</li>
-				<li id="r1.3.7"><a href="#h1.3"><strong>&uarr;_</strong></a> <a href="#r1.3.7">1.3.7.</a>
+				<li id="r1.3.6"><a href="#h1.3"><strong>&uarr;_</strong></a> <a href="#r1.3.6">1.3.6.</a>
 					<strong>Scene releases in each torrent category must conform to the rules specified for their respective sections.</strong> For example, music scene releases must adhere to the music quality and formatting rules no matter how the original files were released. If the scene archives were password protected, you cannot upload them to this site unmodified. Exceptions: You may upload scene releases that originally do not fit in the rules if you can make the necessary changes within the rules. However, these modified uploads must not be labeled as scene.
 				</li>
 			</ul>
@@ -173,7 +178,7 @@ View::show_header('Uploading Rules', 'rules');
 				<li id="r2.1.1"><a href="#h2.1"><strong>&uarr;_</strong></a> <a href="#r2.1.1">2.1.1.</a> <strong>The only formats allowed for music are:</strong>
 					<ul>
 						<li><strong>Lossy:</strong> MP3, AAC, AC3, DTS</li>
-						<li><strong>Lossless:</strong> FLAC</li>
+						<li><strong>Lossless:</strong> FLAC (maximum 24-bit depth, maximum 192 kHz sampling rate)</li>
 					</ul>
 					<span style="font-style: italic;">Only standard versions of each format are allowed. Hybrid formats that combine both lossless and lossy audio data in the same file, such as DTS-HD, mp3HD, and HD-AAC, are not allowed. AC3 and DTS are reserved for commercial media sources and only if they contain such tracks; transcoding from any other source, including lossless (e.g., PCM and MLP formats), is not allowed.</span>
 				</li>
@@ -234,7 +239,7 @@ View::show_header('Uploading Rules', 'rules');
 						<li id="r2.1.23.3"><a href="#r2.1.23"><strong>&uarr;_</strong></a> <a href="#r2.1.23.3">2.1.23.3.</a> <strong>Officially-released game soundtracks, which adhere to Red Book standards, are always allowed.</strong> </li>
 					</ul>
 				</li>
-				<li id="r2.1.24"><a href="#h2.1"><strong>&uarr;_</strong></a> <a href="#r2.1.24">2.1.24.</a> <strong>Lossy AAC torrents may only be uploaded when they represent exclusive content not currently available in any other format (e.g., an iTunes WEB exclusive release).</strong> </li>
+				<li id="r2.1.24"><a href="#h2.1"><strong>&uarr;_</strong></a> <a href="#r2.1.24">2.1.24.</a> <strong>AAC torrents may only be uploaded if they represent editions unavailable on What.CD in any other format sourced from the same medium and edition (e.g., an iTunes AAC WEB release can co-exist with a CD release of the same edition).</strong> See <a href="#r2.2.9.11">2.2.9.11</a> for information about trumping AAC torrents.</li>
 				<li id="r2.1.25"><a href="#h2.1"><strong>&uarr;_</strong></a> <a href="#r2.1.25">2.1.25.</a> <strong>No HDCD content may be uploaded to the site.</strong> There are inherent problems with ripping this format, and other forms of high-resolution audio are both more prevalent and preferred at this time (e.g., vinyl, SACD, Blu-ray, etc.). Any CD bearing the HDCD logo can still be ripped using the usual methods for ripping normal audio CDs. See <a href="wiki.php?action=article&amp;id=875">this wiki</a> for more details on the media format.</li>
 				<li id="r2.1.26"><a href="#h2.1"><strong>&uarr;_</strong></a> <a href="#r2.1.26">2.1.26.</a> <strong> Downsampling of digital sources is allowed for certain media types.</strong> Downsampling of CD sources is strictly prohibited. Downsampling of WEB sources is allowed for audio files sampled at 88.2 kHz and above. If the WEB source is already sampled at a rate of either 44.1 kHz or 48 kHz you may not downsample the audio files any further. Downsampling of SACD, DVD, or Blu-ray sources is allowed in certain cases. See <a href="#r2.8.5">2.8.5</a>, <a href="#r2.7.3">2.7.3</a>, and <a href="#r2.9.5">2.9.5</a> for more information.</li>
 			</ul>
@@ -268,7 +273,7 @@ View::show_header('Uploading Rules', 'rules');
 						<li id="r2.2.9.8"><a href="#r2.2.9"><strong>&uarr;_</strong></a> <a href="#r2.2.9.8">2.2.9.8.</a> <strong>V2 (VBR) and V0 (VBR) LAME encodes trump APS (VBR) and APX (VBR) respectively.</strong> V2 (VBR) trumps an APS (VBR) encode of the same release. Once a V2 (VBR) is uploaded, you may not upload an APS (VBR) encode. V0 (VBR) trumps an APX (VBR) encode of the same release. Once a V0 (VBR) is uploaded, you may not upload an APX (VBR) encode.</li>
 						<li id="r2.2.9.9"><a href="#r2.2.9"><strong>&uarr;_</strong></a> <a href="#r2.2.9.9">2.2.9.9.</a> <strong>Encoding profiles/object types at the same bitrate are not unique uploads.</strong> A 256 (VBR) in LC profile is a dupe if a 256 (VBR) HE object type encode already exists on the site. Similarly, different extensions (.m4a and .mp4) count as dupes if available in the same bitrate.</li>
 						<li id="r2.2.9.10"><a href="#r2.2.9"><strong>&uarr;_</strong></a> <a href="#r2.2.9.10">2.2.9.10.</a> <strong>VBR AAC encodes can be trumped by 256 CBR encodes.</strong> Any VBR AAC encode, regardless of encoder used, may be deleted in favor of 256 CBR encodes. This includes 320 (VBR) encodes or encodes made with Nero presets.</li>
-						<li id="r2.2.9.11"><a href="#r2.2.9"><strong>&uarr;_</strong></a> <a href="#r2.2.9.11">2.2.9.11.</a> <strong>AAC encodes can be trumped by any allowed MP3 format of the same edition and media.</strong> Note: For WEB torrents, comparisons of audio quality and source reliability will determine whether or not an MP3 may trump an AAC (at the discretion of the moderator involved).</li>
+						<li id="r2.2.9.11"><a href="#r2.2.9"><strong>&uarr;_</strong></a> <a href="#r2.2.9.11">2.2.9.11.</a> <strong>An AAC encode can be trumped by an allowed encode of the same medium and edition.</strong> Note: For WEB torrents, comparisons of audio quality and source reliability will determine whether or not an MP3 may trump an AAC (at the discretion of the moderator involved).</li>
 						<li id="r2.2.9.12"><a href="#r2.2.9"><strong>&uarr;_</strong></a> <a href="#r2.2.9.12">2.2.9.12.</a> <strong>Only one lossy vinyl rip in a specific bitrate is allowed per edition.</strong> See <a href="#r2.5.2">2.5.2</a>.</li>
 						<li id="r2.2.9.13"><a href="#r2.2.9"><strong>&uarr;_</strong></a> <a href="#r2.2.9.13">2.2.9.13.</a> <strong>Any lossy formats must be encoded at the same sampling rate as their lossless source.</strong> FLAC files from a CD rip (sampled at 44.1 kHz) can only be transcoded to 44.1 kHz lossy formats. Any 48 kHz lossy formats for the same release that are uploaded after the 44.1 kHz torrents are on the site are considered dupes. FLAC files from a WEB FLAC (sampled at 48 kHz) can only be transcoded to 48 kHz lossy formats. If the 48 kHz FLAC torrent is uploaded, and the lossy formats are populated for this album at 48 kHz, no 44.1 kHz torrents (lossless or lossy) may be uploaded because those later torrents will be considered dupes.</li>
 					</ul>
@@ -306,7 +311,7 @@ View::show_header('Uploading Rules', 'rules');
 							</ul>
 						</li>
 						<li id="r2.2.10.10"><a href="#r2.2.10"><strong>&uarr;_</strong></a> <a href="#r2.2.10.10">2.2.10.10.</a> <strong>FLAC files must be compressed.</strong> We strongly recommend that FLAC files be compressed to Level 8. Lack of compression can increase the torrent size by 5% or more. Any torrents that have uncompressed FLAC files may be reported and trumped.</li>
-						<li id="r2.2.10.11"><a href="#r2.2.10"><strong>&uarr;_</strong></a> <a href="#r2.2.10.11">2.2.10.11.</a> <strong>Any lossless formats must be encoded at the same sampling rate as their lossless source material.</strong> Lossless files from a Red Book-compliant CD rip (sampled at 44.1 kHz) can only be encoded to 44.1 kHz FLAC files for uploading in lossless torrents. Any 48 kHz lossless torrents for the same release are considered dupes. FLAC files from a WEB FLAC (sampled at 48 kHz) can only be uploaded as 48 kHz FLAC torrents. Any 44.1 kHz torrents for the same release are considered dupes. When albums are available in a number of different lossless formats (44.1 kHz, 48, kHz, 96 kHz, etc.) the first lossless torrent that is uploaded to the site may remain while all subsequent versions are considered dupes. See <a href="#r2.2.2">2.2.2</a> and <a href="#r2.2.9.13">2.2.9.13</a> for more information.</li>
+						<li id="r2.2.10.11"><a href="#r2.2.10"><strong>&uarr;_</strong></a> <a href="#r2.2.10.11">2.2.10.11.</a> <strong>Any lossless formats must be encoded at the same sampling rate as their lossless source material.</strong> Lossless files from a Red Book-compliant CD rip (sampled at 44.1 kHz) can only be encoded to 44.1 kHz FLAC files for uploading in lossless torrents. Any 48 kHz lossless torrents for the same release are considered dupes. FLAC files from a WEB FLAC (sampled at 48 kHz) can only be uploaded as 48 kHz FLAC torrents. Any 44.1 kHz torrents for the same release are considered dupes. When albums are available in a number of different lossless formats (44.1 kHz, 48 kHz, 96 kHz, etc.) the first lossless torrent that is uploaded to the site may remain while all subsequent versions are considered dupes. See <a href="#r2.2.2">2.2.2</a> and <a href="#r2.2.9.13">2.2.9.13</a> for more information.</li>
 					</ul>
 				</li>
 				<li id="r2.2.11"><a href="#h2.2"><strong>&uarr;_</strong></a> <a href="#r2.2.11">2.2.11.</a> <strong>Editions and Releases rules</strong>
@@ -578,12 +583,12 @@ View::show_header('Uploading Rules', 'rules');
 						<li id="r3.6.5"><a href="#r3.6"><strong>&uarr;_</strong></a> <a href="#r3.6.5">3.6.5.</a> <strong>The preferred AAC bitrate is 64 kbps.</strong> All other AAC bitrates may be trumped by a 64 kbps upload. Once a 64 kbps AAC torrent has been uploaded, no further AAC uploads are allowed for that album.</li>
 					</ul>
 				</li>
-				<li id="r3.7"><a href="#r3.7k"><strong>&uarr;_</strong></a> <a href="#r3.7">3.7.</a> <strong>Lossy sources, including lossy transcodes, are allowed in this section only.</strong> The source may come from cassette, VHS (audio), radio, or a higher bitrate lossy file. While the sharing of transcoded material is strongly discouraged for music, the audio quality is less important for spoken word material. Note: You may not transcode a lower bitrate file to a higher bitrate file and upload it here. For example, if you find a 32 kbps CBR WMA you cannot transcode it to 64 kbps CBR MP3 and share this on the site. </li>
-				<li id="r3.8"><a href="#r3.8k"><strong>&uarr;_</strong></a> <a href="#r3.8">3.8.</a> <strong>Online audiobook sources may carry only low bitrate audio files.</strong> Audiobook sources such as <a href="http://www.audible.com/">audible.com</a> have standard audio quality levels that may be at or below the standards for the site (see <a href="#r3.1.2">3.1.2</a>). Please make sure that you know the audio quality of your source material (e.g., many audiobook retailers only supply 64 kbps files) before you transcode to V8 (VBR), V2 (VBR), or V0 (VBR). Transcoding from a lower bitrate file to a higher bitrate file is forbidden. </li>
-				<li id="r3.9"><a href="#r3.9k"><strong>&uarr;_</strong></a> <a href="#r3.9">3.9.</a> <strong>Duplicate torrents of the same bitrate and format are not allowed.</strong> No uploads of the same bitrate and format are allowed to coexist on the site. See <a href="#r3.6">3.6</a>. </li>
-				<li id="r3.10"><a href="#r3.10k"><strong>&uarr;_</strong></a> <a href="#r3.10">3.10.</a> <strong>Scene and non-scene versions of the same release, bitrate, and format are dupes.</strong> The Scene label does not make torrents unique from one another. If a V2 (VBR) torrent for an album on CD is already uploaded, you may not upload another V2 (VBR) scene release of the same album on CD. </li>
-				<li id="r3.11"><a href="#r3.11k"><strong>&uarr;_</strong></a> <a href="#r3.11">3.11.</a> <strong>Releases must follow the usual formatting guidelines for file names and tags.</strong> Audiobooks and comedy must follow the formatting rules outlined in section <a href="#r2.3">2.3<a/>. This means that file names must include track numbers, audio files must have metatags, etc. </li>
-				<li id="r3.12"><a href="#r3.12k"><strong>&uarr;_</strong></a> <a href="#r3.12">3.12.</a> <strong>Do not upload multiple formats for a Comedy or audiobook album onto the same album page.</strong> Each format should have its own torrent page. Likewise, do not group existing single-torrent Comedy and audiobook releases onto a single common album page with multiple formats. Grouping torrents in these non-music categories as if they were music torrents causes a number of database and organizational problems on the site. </li>
+				<li id="r3.7"><a href="#r3.7k"><strong>&uarr;_</strong></a> <a href="#r3.7">3.7.</a> <strong>Lossy sources, including lossy transcodes, are allowed in this section only.</strong> The source may come from cassette, VHS (audio), radio, or a higher bitrate lossy file. While the sharing of transcoded material is strongly discouraged for music, the audio quality is less important for spoken word material. Note: You may not transcode a lower bitrate file to a higher bitrate file and upload it here. For example, if you find a 32 kbps CBR WMA you cannot transcode it to 64 kbps CBR MP3 and share this on the site.</li>
+				<li id="r3.8"><a href="#r3.8k"><strong>&uarr;_</strong></a> <a href="#r3.8">3.8.</a> <strong>Online audiobook sources may carry only low bitrate audio files.</strong> Audiobook sources such as <a href="http://www.audible.com/">audible.com</a> have standard audio quality levels that may be at or below the standards for the site (see <a href="#r3.1.2">3.1.2</a>). Please make sure that you know the audio quality of your source material (e.g., many audiobook retailers only supply 64 kbps files) before you transcode to V8 (VBR), V2 (VBR), or V0 (VBR). Transcoding from a lower bitrate file to a higher bitrate file is forbidden.</li>
+				<li id="r3.9"><a href="#r3.9k"><strong>&uarr;_</strong></a> <a href="#r3.9">3.9.</a> <strong>Duplicate torrents of the same bitrate and format are not allowed.</strong> No uploads of the same bitrate and format are allowed to coexist on the site. See <a href="#r3.6">3.6</a>.</li>
+				<li id="r3.10"><a href="#r3.10k"><strong>&uarr;_</strong></a> <a href="#r3.10">3.10.</a> <strong>Scene and non-scene versions of the same release, bitrate, and format are dupes.</strong> The Scene label does not make torrents unique from one another. If a V2 (VBR) torrent for an album on CD is already uploaded, you may not upload another V2 (VBR) scene release of the same album on CD.</li>
+				<li id="r3.11"><a href="#r3.11k"><strong>&uarr;_</strong></a> <a href="#r3.11">3.11.</a> <strong>Releases must follow the usual formatting guidelines for file names and tags.</strong> Audiobooks and comedy must follow the formatting rules outlined in section <a href="#h2.3">2.3</a>. This means that file names must include track numbers, audio files must have metatags, etc.</li>
+				<li id="r3.12"><a href="#r3.12k"><strong>&uarr;_</strong></a> <a href="#r3.12">3.12.</a> <strong>Do not upload multiple formats for a Comedy or audiobook album onto the same album page.</strong> Each format should have its own torrent page. Likewise, do not group existing single-torrent Comedy and audiobook releases onto a single common album page with multiple formats. Grouping torrents in these non-music categories as if they were music torrents causes a number of database and organizational problems on the site.</li>
 			</ul>
 		</div>
 

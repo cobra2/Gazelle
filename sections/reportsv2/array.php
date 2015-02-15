@@ -108,25 +108,6 @@ Your torrent was reported because it contained material from the DNU list or fro
 					'delete' => '1',
 					'pm' => '[rule]h2.2[/rule]. Your torrent was reported because it was trumped by another torrent.'
 				)
-			),
-			'private_trump' => array(
-				'priority' => 21,
-				'reason' => '1',
-				'title' => 'Private Flag Trump',
-				'report_messages' => array(
-					'Please make sure you are reporting the torrent <strong class="important_text">which has been trumped</strong> and should be deleted, not the torrent that you think should remain on site.'
-				),
-
-				'report_fields' => array(
-					'sitelink' => '1'
-				),
-
-				'resolve_options' => array(
-					'upload' => '0',
-					'warn' => '0',
-					'delete' => '1',
-					'pm' => ''
-				)
 			)
 		),
 
@@ -469,7 +450,7 @@ Your torrent was reported because the bitrates of one or more audio files had be
 				),
 				'resolve_options' => array(
 					'upload' => '0',
-					'warn' => '1',
+					'warn' => '2',
 					'delete' => '1',
 					'pm' => '[rule]2.1.11[/rule]. Music ripped from the radio (Satellite or FM), television, the web, or podcasts are not allowed.
 The only allowable media formats are CD, DVD, Vinyl, Soundboard, SACD, DAT, Cassette, WEB, and Blu-ray.'

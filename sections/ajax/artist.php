@@ -173,7 +173,11 @@ reset($TorrentList);
 $JsonTorrents = array();
 $Tags = array();
 $NumTorrents = $NumSeeders = $NumLeechers = $NumSnatches = 0;
-foreach ($TorrentList as $GroupID => $Group) {
+foreach ($GroupIDs as $GroupID) {
+	if (!isset($TorrentList[$GroupID])) {
+		continue;
+	}
+	$Group = $TorrentList[$GroupID];
 	extract(Torrents::array_group($Group));
 
 	foreach ($Artists as &$Artist) {
@@ -338,7 +342,7 @@ $Data = array(array($Name, $Image, $Body, $NumSimilar, $SimilarArray, array(), a
 
 $Cache->cache_value($Key, $Data, 3600);
 
-json_die("success", array(
+json_print("success", array(
 	'id' => (int)$ArtistID,
 	'name' => $Name,
 	'notificationsEnabled' => $notificationsEnabled,

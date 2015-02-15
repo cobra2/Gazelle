@@ -828,8 +828,10 @@ CREATE TABLE `sphinx_delta` (
   `FileList` mediumtext,
   `Description` text,
   `VoteScore` float NOT NULL DEFAULT '0',
+  `LastChanged` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`),
-  KEY `GroupID` (`GroupID`)
+  KEY `GroupID` (`GroupID`),
+  KEY `Size` (`Size`)
 ) ENGINE=MyISAM CHARSET utf8;
 
 CREATE TABLE `sphinx_hash` (
@@ -1126,7 +1128,7 @@ CREATE TABLE `torrents` (
   `Seeders` int(6) NOT NULL DEFAULT '0',
   `last_action` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `FreeTorrent` enum('0','1','2') NOT NULL DEFAULT '0',
-  `FreeLeechType` enum('0','1','2','3') NOT NULL DEFAULT '0',
+  `FreeLeechType` enum('0','1','2','3','4','5','6','7') NOT NULL DEFAULT '0',
   `Time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `Description` text,
   `Snatched` int(10) unsigned NOT NULL DEFAULT '0',
@@ -1788,23 +1790,23 @@ CREATE TABLE `xbt_client_whitelist` (
 
 CREATE TABLE `xbt_files_users` (
   `uid` int(11) NOT NULL,
-  `active` tinyint(1) NOT NULL,
-  `announced` int(11) NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '1',
+  `announced` int(11) NOT NULL DEFAULT '0',
   `completed` tinyint(1) NOT NULL DEFAULT '0',
-  `downloaded` bigint(20) NOT NULL,
-  `remaining` bigint(20) NOT NULL,
-  `uploaded` bigint(20) NOT NULL,
-  `upspeed` int(10) unsigned NOT NULL,
-  `downspeed` int(10) unsigned NOT NULL,
+  `downloaded` bigint(20) NOT NULL DEFAULT '0',
+  `remaining` bigint(20) NOT NULL DEFAULT '0',
+  `uploaded` bigint(20) NOT NULL DEFAULT '0',
+  `upspeed` int(10) unsigned NOT NULL DEFAULT '0',
+  `downspeed` int(10) unsigned NOT NULL DEFAULT '0',
   `corrupt` bigint(20) NOT NULL DEFAULT '0',
-  `timespent` int(10) unsigned NOT NULL,
-  `useragent` varchar(51) NOT NULL,
+  `timespent` int(10) unsigned NOT NULL DEFAULT '0',
+  `useragent` varchar(51) NOT NULL DEFAULT '',
   `connectable` tinyint(4) NOT NULL DEFAULT '1',
   `peer_id` binary(20) NOT NULL DEFAULT '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0',
   `fid` int(11) NOT NULL,
-  `mtime` int(11) NOT NULL,
+  `mtime` int(11) NOT NULL DEFAULT '0',
   `ip` varchar(15) NOT NULL DEFAULT '',
-  PRIMARY KEY (`peer_id`,`fid`),
+  PRIMARY KEY (`peer_id`,`fid`,`uid`),
   KEY `remaining_idx` (`remaining`),
   KEY `fid_idx` (`fid`),
   KEY `mtime_idx` (`mtime`),
@@ -1817,8 +1819,8 @@ CREATE TABLE `xbt_snatched` (
   `fid` int(11) NOT NULL,
   `IP` varchar(15) NOT NULL,
   KEY `fid` (`fid`),
-  KEY `uid` (`uid`),
-  KEY `tstamp` (`tstamp`)
+  KEY `tstamp` (`tstamp`),
+  KEY `uid_tstamp` (`uid`,`tstamp`)
 ) ENGINE=InnoDB CHARSET utf8;
 
 CREATE DEFINER=`root`@`localhost` FUNCTION `binomial_ci`(p int, n int) RETURNS float

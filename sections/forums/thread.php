@@ -11,7 +11,6 @@ Things to expect in $_GET:
 
 //---------- Things to sort out before it can start printing/generating content
 
-
 // Enable TOC
 Text::$TOC = true;
 
@@ -37,7 +36,6 @@ if (!isset($_GET['threadid']) || !is_number($_GET['threadid'])) {
 } else {
 	$ThreadID = $_GET['threadid'];
 }
-
 
 if (isset($LoggedUser['PostsPerPage'])) {
 	$PerPage = $LoggedUser['PostsPerPage'];
@@ -429,6 +427,7 @@ if ($ThreadInfo['StickyPostID']) {
 foreach ($Thread as $Key => $Post) {
 	list($PostID, $AuthorID, $AddedTime, $Body, $EditedUserID, $EditedTime, $EditedUsername) = array_values($Post);
 	list($AuthorID, $Username, $PermissionID, $Paranoia, $Artist, $Donor, $Warned, $Avatar, $Enabled, $UserTitle) = array_values(Users::user_info($AuthorID));
+
 ?>
 <table class="forum_post wrap_overflow box vertical_margin<?
 	if (((!$ThreadInfo['IsLocked'] || $ThreadInfo['IsSticky'])

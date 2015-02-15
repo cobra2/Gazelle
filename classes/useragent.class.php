@@ -26,6 +26,7 @@ class UserAgent {
 		'chromeframe'		=> 'Chrome Frame',
 		'x-clock'			=> 'Chrome Frame',
 		'MSIE'				=> 'Internet Explorer',
+		'Trident'			=> 'Internet Explorer',
 		//Firefox versions
 		'Shiretoko'			=> 'Firefox (Experimental)',
 		'Minefield'			=> 'Firefox (Experimental)',
@@ -56,6 +57,8 @@ class UserAgent {
 		// 'tablet PC'			=> 'Windows RT',
 		// 'ARM; Trident'		=> 'Windows RT',
 		//Windows
+		'Windows NT 10.0'	=> 'Windows 10',
+		'Windows NT 6.4'	=> 'Windows 10',
 		'Windows NT 6.3'	=> 'Windows 8.1',
 		'Windows 8.1'		=> 'Windows 8.1',
 		'Windows NT 6.2'	=> 'Windows 8',

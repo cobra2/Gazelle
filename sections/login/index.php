@@ -30,22 +30,23 @@ if (isset($_REQUEST['act']) && $_REQUEST['act'] == 'recover') {
 	// Recover password
 	if (!empty($_REQUEST['key'])) {
 		// User has entered a new password, use step 2
+
 		$DB->query("
 			SELECT
 				m.ID,
 				m.Email,
 				m.ipcc,
 				i.ResetExpires
-			FROM users_main AS m
+			FROM users_main as m
 				INNER JOIN users_info AS i ON i.UserID = m.ID
 			WHERE i.ResetKey = '".db_string($_REQUEST['key'])."'
 				AND i.ResetKey != ''
 				AND m.Enabled = '1'");
 		list($UserID, $Email, $Country, $Expires) = $DB->next_record();
-
 		if ($UserID && strtotime($Expires) > time()) {
-			// If the user has requested a password change, and his key has not expired
-			$Validate->SetFields('password', '1', 'regex', 'You entered an invalid password. A strong password is between 8 and 40 characters long, contains at least 1 lowercase and uppercase letter, contains at least a number or symbol', array('regex' => '/(?=^.{8,}$)(?=.*[^a-zA-Z])(?=.*[A-Z])(?=.*[a-z]).*$/'));
+
+		// If the user has requested a password change, and his key has not expired
+			$Validate->SetFields('password', '1', 'regex', 'You entered an invalid password. A strong password is 8 characters or longer, contains at least 1 lowercase and uppercase letter, contains at least a number or symbol', array('regex' => '/(?=^.{8,}$)(?=.*[^a-zA-Z])(?=.*[A-Z])(?=.*[a-z]).*$/'));
 			$Validate->SetFields('verifypassword', '1', 'compare', 'Your passwords did not match.', array('comparefield' => 'password'));
 
 			if (!empty($_REQUEST['password'])) {
@@ -62,8 +63,13 @@ if (isset($_REQUEST['act']) && $_REQUEST['act'] == 'recover') {
 							m.PassHash = '".db_string(Users::make_crypt_hash($_REQUEST['password']))."',
 							i.ResetKey = '',
 							i.ResetExpires = '0000-00-00 00:00:00'
-						WHERE m.ID = '".db_string($UserID)."'
+						WHERE m.ID = '$UserID'
 							AND i.UserID = m.ID");
+					$DB->query("
+						INSERT INTO users_history_passwords
+							(UserID, ChangerIP, ChangeTime)
+						VALUES
+							('$UserID', '$_SERVER[REMOTE_ADDR]', '".sqltime()."')");
 					$Reset = true; // Past tense form of "to reset", meaning that password has now been reset
 
 
@@ -186,7 +192,7 @@ else {
 
 	// Function to log a user's login attempt
 	function log_attempt($UserID) {
-		global $DB, $Cache, $AttemptID, $Attempts, $Bans, $BannedUntil, $Time, $UserID;
+		global $DB, $Cache, $AttemptID, $Attempts, $Bans, $BannedUntil;
 		$IPStr = $_SERVER['REMOTE_ADDR'];
 		$IPA = substr($IPStr, 0, strcspn($IPStr, '.'));
 		$IP = Tools::ip_to_unsigned($IPStr);
